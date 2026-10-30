@@ -1,0 +1,1858 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+
+<title>Дмитрий & Яна | Wedding Day</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ОСНОВА */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background: #fff;
+    color: #292929;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   ПЕРВЫЙ ЭКРАН
+========================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    min-height: 550px;
+    overflow: hidden;
+    color: #fff;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("1.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+    transform: scale(1.06);
+    animation: photoAppear 2s ease forwards;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.05),
+        rgba(0,0,0,.08) 40%,
+        rgba(0,0,0,.30) 65%,
+        rgba(0,0,0,.68)
+    );
+    z-index: 1;
+}
+
+.hero-content {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    left: 0;
+    top: 66%;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 0 15px;
+}
+
+.subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(25px, 3.5vw, 42px);
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    opacity: 0;
+    transform: translateY(25px);
+    animation: textAppear 1.2s ease forwards .8s;
+}
+
+.names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 7.5vw, 92px);
+    font-weight: 400;
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: textAppear 1.4s ease forwards 1.3s;
+}
+
+/* СТРЕЛКА */
+
+.scroll {
+    position: absolute;
+    z-index: 3;
+    bottom: calc(6% + env(safe-area-inset-bottom));
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards 2s;
+}
+
+.scroll-line {
+    position: relative;
+    width: 1px;
+    height: 58px;
+    background: rgba(255,255,255,.6);
+    margin-bottom: 28px;
+    overflow: hidden;
+}
+
+.scroll-line::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: #fff;
+    animation: lineMove 2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+    position: absolute;
+    top: 48px;
+    width: 8px;
+    height: 8px;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    transform: rotate(45deg);
+    animation: arrowMove 1.8s ease-in-out infinite;
+}
+
+.scroll-text {
+    font-size: 14px;
+    font-weight: 300;
+    white-space: nowrap;
+}
+
+/* =========================
+   ВТОРОЙ ЭКРАН
+   ПРИГЛАШЕНИЕ
+========================= */
+
+.invitation {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 65px 20px 0;
+    overflow: hidden;
+}
+
+.invitation-text {
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    color: #303030;
+}
+
+.invitation-intro {
+    font-size: clamp(17px, 2.1vw, 28px);
+    font-weight: 300;
+    line-height: 1.9;
+}
+
+.wedding-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 7vw, 76px);
+    font-weight: 500;
+    line-height: 1.1;
+    margin: 15px 0 17px;
+    white-space: nowrap;
+}
+
+.invitation-caption {
+    font-size: clamp(17px, 2.1vw, 28px);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* =========================
+   LOCATION
+========================= */
+
+.location {
+    width: min(775px, 90%);
+    min-height: 620px;
+    margin-top: 125px;
+    background: #292929;
+    color: #fff;
+    border-radius: 50% 50% 0 0 / 62% 62% 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 245px 35px 70px;
+}
+
+.location-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 7vw, 78px);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 40px;
+}
+
+.location-name,
+.location-address {
+    font-size: clamp(17px, 2.2vw, 29px);
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+.location-address {
+    margin-top: 3px;
+}
+
+.route-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 350px;
+    min-height: 96px;
+    padding: 20px 35px;
+    margin-top: 30px;
+    border-radius: 60px;
+    background: #fff;
+    color: #292929;
+    font-size: 19px;
+    font-weight: 300;
+    text-decoration: none;
+    transition: background .3s ease;
+}
+
+.route-button:hover {
+    background: #e8e8e8;
+}
+
+/* =========================
+   ТРЕТИЙ ЭКРАН
+   ТАЙМЕР
+========================= */
+
+.countdown-section {
+    width: 100%;
+    min-height: 430px;
+    padding: 105px 20px 110px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.countdown-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(35px, 5vw, 55px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 45px;
+}
+
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 720px;
+}
+
+.countdown-item {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 86px);
+    font-weight: 400;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+    font-size: clamp(10px, 1.4vw, 13px);
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 12px;
+    color: #777;
+}
+
+.countdown-divider {
+    width: 1px;
+    height: 55px;
+    background: #d8d8d8;
+    flex-shrink: 0;
+    margin: 0 12px;
+}
+
+.countdown-bottom {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    margin-top: 45px;
+}
+
+/* =========================
+   ЧЕТВЁРТЫЙ ЭКРАН
+   ПРОГРАММА ДНЯ
+========================= */
+
+.program-section {
+    width: 100%;
+    background: #fff;
+    padding: 65px 4% 110px;
+    color: #292929;
+}
+
+.program-container {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.program-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(65px, 10vw, 112px);
+    font-weight: 500;
+    line-height: .88;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    margin-left: 11%;
+    margin-bottom: 65px;
+}
+
+.program-item {
+    display: grid;
+    grid-template-columns: 23% 1fr;
+    column-gap: 35px;
+    align-items: start;
+    margin-bottom: 65px;
+}
+
+.program-line {
+    width: 100%;
+    height: 1px;
+    background: #292929;
+    margin-top: 28px;
+}
+
+.program-info {
+    min-width: 0;
+}
+
+.program-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 6vw, 70px);
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 5px;
+}
+
+.program-description {
+    font-size: clamp(16px, 2vw, 26px);
+    font-weight: 300;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* =========================
+   ПЯТЫЙ ЭКРАН
+   DRESS CODE
+========================= */
+
+.dresscode-section {
+    position: relative;
+    width: 100%;
+    min-height: 680px;
+    padding: 100px 25px 110px;
+    background: #292929;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ДЕКОРАТИВНАЯ РАМКА */
+
+.dresscode-section::before {
+    content: "";
+    position: absolute;
+    inset: 25px;
+    border: 1px solid rgba(255,255,255,.17);
+    pointer-events: none;
+}
+
+.dresscode-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ЗАГОЛОВОК */
+
+.dresscode-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(65px, 10vw, 115px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+}
+
+/* ТОНКАЯ ЛИНИЯ */
+
+.dresscode-decoration {
+    width: 75px;
+    height: 1px;
+    background: rgba(255,255,255,.7);
+    margin: 0 auto 35px;
+}
+
+/* ТЕКСТ */
+
+.dresscode-text {
+    max-width: 670px;
+    margin: 0 auto;
+    font-size: clamp(16px, 2vw, 23px);
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(255,255,255,.92);
+}
+
+/* ПАЛИТРА */
+
+.dresscode-palette {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(18px, 4vw, 42px);
+    margin: 65px auto 35px;
+}
+
+.palette-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.palette-circle {
+    width: clamp(48px, 7vw, 76px);
+    height: clamp(48px, 7vw, 76px);
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.4);
+    transition: transform .4s ease;
+}
+
+.palette-item:hover .palette-circle {
+    transform: translateY(-6px);
+}
+
+/* Цвета палитры */
+
+.palette-1 {
+    background: #eee8df;
+}
+
+.palette-2 {
+    background: #d3c7b8;
+}
+
+.palette-3 {
+    background: #aaa49a;
+}
+
+.palette-4 {
+    background: #77766f;
+}
+
+.palette-5 {
+    background: #42413e;
+}
+
+.palette-name {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.75);
+}
+
+/* ПОДПИСЬ */
+
+.dresscode-note {
+    margin-top: 45px;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.65);
+}
+
+/* =========================
+   АНИМАЦИИ ПОЯВЛЕНИЯ
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.program-item:nth-child(2) { transition-delay: .1s; }
+.program-item:nth-child(3) { transition-delay: .2s; }
+.program-item:nth-child(4) { transition-delay: .3s; }
+.program-item:nth-child(5) { transition-delay: .4s; }
+
+/* =========================
+   МУЗЫКА
+========================= */
+
+.music-button {
+    position: fixed;
+    top: calc(20px + env(safe-area-inset-top));
+    right: 20px;
+    z-index: 20;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255,255,255,.7);
+    border-radius: 50%;
+    background: rgba(0,0,0,.25);
+    color: #fff;
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.music-button.playing {
+    animation: musicRotate 5s linear infinite;
+}
+
+/* =========================
+   АНИМАЦИИ
+========================= */
+
+@keyframes textAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes photoAppear {
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.06);
+    }
+}
+
+@keyframes lineMove {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}
+
+@keyframes arrowMove {
+    0%, 100% {
+        transform: translateY(0) rotate(45deg);
+    }
+    50% {
+        transform: translateY(6px) rotate(45deg);
+    }
+}
+
+@keyframes musicRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* =========================
+   ПЛАНШЕТЫ
+========================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .location {
+        margin-top: 110px;
+        min-height: 590px;
+        padding-top: 220px;
+    }
+
+    .program-title {
+        margin-left: 8%;
+    }
+
+    .program-item {
+        grid-template-columns: 22% 1fr;
+        column-gap: 25px;
+    }
+
+    .dresscode-section {
+        min-height: 620px;
+    }
+}
+
+/* =========================
+   МОБИЛЬНЫЕ УСТРОЙСТВА
+========================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 550px;
+    }
+
+    .hero-content {
+        top: 66%;
+        padding: 0 10px;
+    }
+
+    .subtitle {
+        font-size: 25px;
+    }
+
+    .names {
+        font-size: clamp(34px, 8.8vw, 52px);
+        letter-spacing: -1px;
+    }
+
+    .scroll {
+        bottom: calc(6% + env(safe-area-inset-bottom));
+    }
+
+    .scroll-line {
+        height: 48px;
+        margin-bottom: 25px;
+    }
+
+    .scroll-arrow {
+        top: 40px;
+    }
+
+    .scroll-text {
+        font-size: 12px;
+    }
+
+    /* ПРИГЛАШЕНИЕ */
+
+    .invitation {
+        padding: 55px 15px 0;
+        min-height: auto;
+    }
+
+    .invitation-intro,
+    .invitation-caption {
+        font-size: clamp(16px, 4.2vw, 21px);
+    }
+
+    .invitation-intro {
+        line-height: 1.85;
+    }
+
+    .wedding-date {
+        font-size: clamp(37px, 9vw, 53px);
+        margin: 17px 0;
+    }
+
+    /* LOCATION */
+
+    .location {
+        width: 100%;
+        min-height: 560px;
+        margin-top: 100px;
+        padding: 185px 15px 60px;
+        border-radius: 50% 50% 0 0 / 38% 38% 0 0;
+    }
+
+    .location-title {
+        font-size: clamp(43px, 11vw, 59px);
+        margin-bottom: 30px;
+    }
+
+    .location-name,
+    .location-address {
+        font-size: clamp(16px, 4vw, 21px);
+        line-height: 1.65;
+    }
+
+    .route-button {
+        min-width: 0;
+        width: min(100%, 320px);
+        min-height: 70px;
+        font-size: 14px;
+        padding: 15px 20px;
+        margin-top: 25px;
+    }
+
+    /* ТАЙМЕР */
+
+    .countdown-section {
+        min-height: 360px;
+        padding: 80px 12px 85px;
+    }
+
+    .countdown-title {
+        font-size: clamp(31px, 8vw, 39px);
+        margin-bottom: 35px;
+    }
+
+    .countdown-number {
+        font-size: clamp(39px, 11vw, 58px);
+    }
+
+    .countdown-label {
+        font-size: 9px;
+        letter-spacing: .5px;
+        margin-top: 9px;
+    }
+
+    .countdown-divider {
+        height: 38px;
+        margin: 0 5px;
+    }
+
+    .countdown-bottom {
+        font-size: 20px;
+        margin-top: 35px;
+    }
+
+    /* ПРОГРАММА */
+
+    .program-section {
+        padding: 55px 20px 75px;
+    }
+
+    .program-title {
+        font-size: clamp(55px, 13vw, 78px);
+        letter-spacing: -1.5px;
+        line-height: .9;
+        margin-left: 0;
+        margin-bottom: 55px;
+    }
+
+    .program-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 48px;
+    }
+
+    .program-line {
+        width: 65px;
+        margin-top: 0;
+    }
+
+    .program-time {
+        font-size: clamp(39px, 10vw, 55px);
+        margin-bottom: 8px;
+    }
+
+    .program-description {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    /* DRESS CODE */
+
+    .dresscode-section {
+        min-height: 590px;
+        padding: 85px 25px;
+    }
+
+    .dresscode-section::before {
+        inset: 14px;
+    }
+
+    .dresscode-title {
+        font-size: clamp(57px, 14vw, 78px);
+        letter-spacing: -1px;
+        margin-bottom: 25px;
+    }
+
+    .dresscode-decoration {
+        margin-bottom: 28px;
+    }
+
+    .dresscode-text {
+        font-size: 15px;
+        line-height: 1.9;
+        max-width: 400px;
+    }
+
+    .dresscode-palette {
+        gap: clamp(12px, 4vw, 22px);
+        margin: 48px auto 25px;
+    }
+
+    .palette-circle {
+        width: clamp(43px, 12vw, 59px);
+        height: clamp(43px, 12vw, 59px);
+    }
+
+    .palette-item {
+        gap: 11px;
+    }
+
+    .palette-name {
+        font-size: 8px;
+        letter-spacing: .5px;
+    }
+
+    .dresscode-note {
+        margin-top: 32px;
+        font-size: 10px;
+        letter-spacing: 1.3px;
+    }
+
+    .music-button {
+        width: 38px;
+        height: 38px;
+        top: calc(15px + env(safe-area-inset-top));
+        right: 15px;
+    }
+}
+
+/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ */
+
+@media (max-width: 360px) {
+
+    .names {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 22px;
+    }
+
+    .wedding-date {
+        font-size: 34px;
+    }
+
+    .location {
+        padding-top: 160px;
+        min-height: 510px;
+    }
+
+    .location-title {
+        font-size: 42px;
+    }
+
+    .countdown-number {
+        font-size: 34px;
+    }
+
+    .countdown-divider {
+        margin: 0 3px;
+    }
+
+    .countdown-label {
+        font-size: 8px;
+    }
+
+    .program-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .program-title {
+        font-size: 53px;
+    }
+
+    .program-time {
+        font-size: 37px;
+    }
+
+    .program-description {
+        font-size: 14px;
+    }
+
+    .dresscode-palette {
+        gap: 10px;
+    }
+
+    .palette-circle {
+        width: 43px;
+        height: 43px;
+    }
+
+    .palette-name {
+        font-size: 7px;
+    }
+}
+
+/* ОТКЛЮЧЕНИЕ АНИМАЦИЙ ПО ЗАПРОСУ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+
+
+/* =========================
+   ФОТО ПЕРЕД АНКЕТОЙ
+========================= */
+
+.guest-photo {
+    width: 100%;
+    aspect-ratio: 1.2 / 1;
+    max-height: 850px;
+    background-image: url("2.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* =========================
+   АНКЕТА ГОСТЯ
+========================= */
+
+.guest-section {
+    width: 100%;
+    background: #fff;
+    color: #292929;
+    padding: 100px 20px 120px;
+}
+
+.guest-container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.guest-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 8vw, 82px);
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.05;
+    margin-bottom: 20px;
+}
+
+.guest-intro {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: #666;
+    margin-bottom: 65px;
+}
+
+.guest-form {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+}
+
+.guest-question {
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+.guest-question-title {
+    display: block;
+    width: 100%;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    font-weight: 500;
+    margin-bottom: 22px;
+}
+
+.guest-options {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.guest-option {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 14px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1.6;
+}
+
+.guest-option input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 19px;
+    height: 19px;
+    min-width: 19px;
+    margin: 0;
+    border: 1px solid #999;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+}
+
+.guest-option input[type="checkbox"] {
+    border-radius: 0;
+}
+
+.guest-option input:checked {
+    border-color: #292929;
+}
+
+.guest-option input:checked::after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: #292929;
+    border-radius: 50%;
+    top: 4px;
+    left: 4px;
+}
+
+.guest-option input[type="checkbox"]:checked::after {
+    width: 9px;
+    height: 5px;
+    background: transparent;
+    border-left: 1.5px solid #292929;
+    border-bottom: 1.5px solid #292929;
+    border-radius: 0;
+    transform: rotate(-45deg);
+    top: 4px;
+    left: 4px;
+}
+
+.guest-input {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #cfcfcf;
+    padding: 13px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    outline: none;
+    background: transparent;
+    border-radius: 0;
+    color: #292929;
+}
+
+.guest-input:focus {
+    border-bottom-color: #292929;
+}
+
+.guest-input::placeholder {
+    color: #999;
+}
+
+.guest-submit {
+    width: 100%;
+    min-height: 65px;
+    margin-top: 15px;
+    padding: 15px 20px;
+    background: #292929;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background .3s ease;
+}
+
+.guest-submit:hover {
+    background: #555;
+}
+
+.guest-success {
+    display: none;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    line-height: 1.4;
+    margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+    .guest-photo {
+        aspect-ratio: 1 / 1;
+        max-height: none;
+    }
+
+    .guest-section {
+        padding: 75px 22px 90px;
+    }
+
+    .guest-title {
+        font-size: 58px;
+    }
+
+    .guest-intro {
+        font-size: 13px;
+        margin-bottom: 50px;
+    }
+
+    .guest-question-title {
+        font-size: 26px;
+    }
+
+    .guest-form {
+        gap: 36px;
+    }
+}
+
+</style>
+
+<style>
+/* ДОПОЛНИТЕЛЬНОЕ ОФОРМЛЕНИЕ LOCATION И CONTACTS */
+.location {
+    width: min(1100px, calc(100% - 40px));
+    min-height: 0;
+    margin: 90px auto 0;
+    padding: clamp(55px, 8vw, 105px) 30px;
+    border-radius: 0;
+    background: #292929;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.location-title { margin-bottom: 28px; }
+.location-name, .location-address { max-width: 700px; }
+.route-button { min-width: 0; width: min(350px, 100%); min-height: 68px; border-radius: 0; }
+.contacts-section {
+    width: 100%;
+    background: #fff;
+    color: #292929;
+    padding: 95px 22px 110px;
+    text-align: center;
+}
+.contacts-container { width: 100%; max-width: 760px; margin: 0 auto; }
+.contacts-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 76px);
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 18px;
+}
+.contacts-text {
+    max-width: 620px; margin: 0 auto 48px; color: #666;
+    font-size: 14px; font-weight: 300; line-height: 1.9;
+}
+.contacts-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 35px; }
+.contact-person { padding: 25px 15px; border-top: 1px solid #d8d8d8; }
+.contact-role { font-size: 10px; letter-spacing: 2px; color: #888; margin-bottom: 12px; }
+.contact-name { font-family: 'Cormorant Garamond', serif; font-size: 34px; margin-bottom: 12px; }
+.contact-phone { color: #292929; text-decoration: none; font-size: 14px; font-weight: 300; border-bottom: 1px solid #aaa; padding-bottom: 4px; }
+.contact-phone:hover { border-color: #292929; }
+.contacts-bottom { margin-top: 55px; font-family: 'Cormorant Garamond', serif; font-size: 27px; font-style: italic; color: #666; }
+@media (max-width: 600px) {
+    .location { width: calc(100% - 30px); margin-top: 65px; padding: 65px 20px; min-height: 0; border-radius: 0; }
+    .location-title { font-size: 48px; margin-bottom: 25px; }
+    .location-name, .location-address { font-size: 16px; }
+    .route-button { min-height: 60px; font-size: 12px; }
+    .contacts-section { padding: 75px 22px 85px; }
+    .contacts-grid { grid-template-columns: 1fr; gap: 8px; }
+    .contact-person { padding: 24px 10px; }
+    .contacts-text { font-size: 13px; margin-bottom: 35px; }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- МУЗЫКА -->
+
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="музыка.mp3" type="audio/mpeg">
+</audio>
+
+<button
+    class="music-button"
+    id="musicButton"
+    type="button"
+    aria-label="Включить музыку"
+    aria-pressed="false"
+>
+    ♫
+</button>
+
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="subtitle">WEDDING DAY</div>
+
+        <h1 class="names">
+            ДМИТРИЙ &amp; ЯНА
+        </h1>
+
+    </div>
+
+    <a href="#invitation" class="scroll">
+
+        <div class="scroll-line"></div>
+        <div class="scroll-arrow"></div>
+
+        <span class="scroll-text">
+            ЛИСТАЙТЕ НИЖЕ
+        </span>
+
+    </a>
+
+</section>
+
+
+<!-- ВТОРОЙ ЭКРАН: ПРИГЛАШЕНИЕ -->
+
+<section class="invitation" id="invitation">
+
+    <div class="invitation-text reveal">
+
+        <p class="invitation-intro">
+            Мы будем счастливы разделить<br>
+            с вами радость события
+        </p>
+
+        <h2 class="wedding-date">
+            23 АПРЕЛЯ 2027
+        </h2>
+
+        <p class="invitation-caption">
+            По случаю нашей свадьбы
+        </p>
+
+    </div>
+
+    <!-- LOCATION -->
+
+    <div class="location reveal">
+
+        <h2 class="location-title">
+            LOCATION
+        </h2>
+
+        <p class="location-name">
+            Название площадки
+        </p>
+
+        <p class="location-address">
+            Адрес площадки
+        </p>
+
+        <a
+            href="https://www.google.com/maps"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="route-button"
+        >
+            ПОСТРОИТЬ МАРШРУТ
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ТРЕТИЙ ЭКРАН: ТАЙМЕР -->
+
+<section class="countdown-section">
+
+    <div class="reveal">
+
+        <h2 class="countdown-title">
+            До нашей свадьбы осталось
+        </h2>
+
+        <div class="countdown" id="countdown">
+
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">000</span>
+                <span class="countdown-label">Дней</span>
+            </div>
+
+            <div class="countdown-divider"></div>
+
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">Часов</span>
+            </div>
+
+            <div class="countdown-divider"></div>
+
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">Минут</span>
+            </div>
+
+            <div class="countdown-divider"></div>
+
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">Секунд</span>
+            </div>
+
+        </div>
+
+        <p class="countdown-bottom">
+            Мы с нетерпением ждём встречи с вами
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ЧЕТВЁРТЫЙ ЭКРАН: ПРОГРАММА -->
+
+<section class="program-section" id="program">
+
+    <div class="program-container">
+
+        <h2 class="program-title reveal">
+            WEDDING<br>
+            PROGRAM
+        </h2>
+
+        <div class="program-item reveal">
+
+            <div class="program-line"></div>
+
+            <div class="program-info">
+
+                <h3 class="program-time">
+                    15:30 ЗАГС
+                </h3>
+
+                <p class="program-description">
+                    Официальная регистрация брака<br>
+                    во Дворце бракосочетания № 1
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="program-item reveal">
+
+            <div class="program-line"></div>
+
+            <div class="program-info">
+
+                <h3 class="program-time">
+                    16:30 Welcome
+                </h3>
+
+                <p class="program-description">
+                    Холодное Prosecco,<br>
+                    лёгкая обстановка и знакомства
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="program-item reveal">
+
+            <div class="program-line"></div>
+
+            <div class="program-info">
+
+                <h3 class="program-time">
+                    17:00 Свадебный ужин
+                </h3>
+
+                <p class="program-description">
+                    Самое время для вкусной еды,<br>
+                    веселья и танцев
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="program-item reveal">
+
+            <div class="program-line"></div>
+
+            <div class="program-info">
+
+                <h3 class="program-time">
+                    23:00 Финал
+                </h3>
+
+                <p class="program-description">
+                    Надеемся, что наш праздник<br>
+                    запомнится вам
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ПЯТЫЙ ЭКРАН: DRESS CODE -->
+
+<section class="dresscode-section" id="dresscode">
+
+    <div class="dresscode-container reveal">
+
+        <h2 class="dresscode-title">
+            DRESS CODE
+        </h2>
+
+        <div class="dresscode-decoration"></div>
+
+        <p class="dresscode-text">
+            Дорогие гости, мы будем рады,
+            если вы поддержите атмосферу нашего праздника
+            и выберете для своего образа оттенки,
+            представленные в нашей палитре.
+        </p>
+
+        <!-- ЦВЕТОВАЯ ПАЛИТРА -->
+
+        <div class="dresscode-palette">
+
+            <div class="palette-item">
+                <div class="palette-circle palette-1"></div>
+                <span class="palette-name">Ivory</span>
+            </div>
+
+            <div class="palette-item">
+                <div class="palette-circle palette-2"></div>
+                <span class="palette-name">Beige</span>
+            </div>
+
+            <div class="palette-item">
+                <div class="palette-circle palette-3"></div>
+                <span class="palette-name">Taupe</span>
+            </div>
+
+            <div class="palette-item">
+                <div class="palette-circle palette-4"></div>
+                <span class="palette-name">Grey</span>
+            </div>
+
+            <div class="palette-item">
+                <div class="palette-circle palette-5"></div>
+                <span class="palette-name">Dark</span>
+            </div>
+
+        </div>
+
+        <div class="dresscode-note">
+            THANK YOU FOR BEING WITH US
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ФОТО ПЕРЕД АНКЕТОЙ -->
+<section class="guest-photo" aria-label="Свадебная фотография"></section>
+
+<!-- АНКЕТА ГОСТЯ -->
+<section class="guest-section" id="guest">
+    <div class="guest-container reveal">
+
+        <h2 class="guest-title">Анкета гостя</h2>
+
+        <p class="guest-intro">
+            Дорогие гости, пожалуйста, ответьте на несколько вопросов,
+            чтобы мы могли подготовить для вас незабываемый праздник.
+        </p>
+
+        <form class="guest-form" id="guestForm">
+
+            <fieldset class="guest-question">
+                <legend class="guest-question-title">Ваше имя и фамилия</legend>
+                <input
+                    class="guest-input"
+                    type="text"
+                    name="guestName"
+                    placeholder="Введите ваше имя"
+                    autocomplete="name"
+                    required
+                >
+            </fieldset>
+
+            <fieldset class="guest-question">
+                <legend class="guest-question-title">
+                    Сможете ли вы присутствовать?
+                </legend>
+                <div class="guest-options">
+                    <label class="guest-option">
+                        <input type="radio" name="attendance"
+                               value="С удовольствием приду" required>
+                        С удовольствием приду
+                    </label>
+                    <label class="guest-option">
+                        <input type="radio" name="attendance"
+                               value="К сожалению, не смогу">
+                        К сожалению, не смогу
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset class="guest-question">
+                <legend class="guest-question-title">
+                    Какие напитки вы предпочитаете?
+                </legend>
+                <div class="guest-options">
+                    <label class="guest-option">
+                        <input type="checkbox" name="drinks" value="Шампанское">
+                        Шампанское
+                    </label>
+                    <label class="guest-option">
+                        <input type="checkbox" name="drinks" value="Белое вино">
+                        Белое вино
+                    </label>
+                    <label class="guest-option">
+                        <input type="checkbox" name="drinks" value="Красное вино">
+                        Красное вино
+                    </label>
+                    <label class="guest-option">
+                        <input type="checkbox" name="drinks" value="Крепкий алкоголь">
+                        Крепкий алкоголь
+                    </label>
+                    <label class="guest-option">
+                        <input type="checkbox" name="drinks" value="Безалкогольные напитки">
+                        Безалкогольные напитки
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset class="guest-question">
+                <legend class="guest-question-title">
+                    Есть ли у вас пожелания?
+                </legend>
+                <input
+                    class="guest-input"
+                    type="text"
+                    name="wishes"
+                    placeholder="Ваши пожелания (необязательно)"
+                >
+            </fieldset>
+
+            <button class="guest-submit" type="submit">
+                ОТПРАВИТЬ ОТВЕТ
+            </button>
+        </form>
+
+        <div class="guest-success" id="guestSuccess" role="status">
+            Спасибо за ваш ответ!
+        </div>
+    </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="contacts-section" id="contacts">
+    <div class="contacts-container reveal">
+        <h2 class="contacts-title">Контакты</h2>
+        <p class="contacts-text">Если у вас возникнут вопросы по мероприятию,
+            пожалуйста, свяжитесь с нами. Мы с радостью вам поможем.</p>
+
+        <div class="contacts-grid">
+            <div class="contact-person">
+                <p class="contact-role">НЕВЕСТА</p>
+                <h3 class="contact-name">Яна</h3>
+                <a class="contact-phone" href="tel:+375XXXXXXXXX">+375 XX XXX-XX-XX</a>
+            </div>
+            <div class="contact-person">
+                <p class="contact-role">ЖЕНИХ</p>
+                <h3 class="contact-name">Дмитрий</h3>
+                <a class="contact-phone" href="tel:+375XXXXXXXXX">+375 XX XXX-XX-XX</a>
+            </div>
+        </div>
+        <p class="contacts-bottom">С нетерпением ждём встречи с вами!</p>
+    </div>
+</section>
+
+
+<script>
+
+/* =========================
+   МУЗЫКА
+========================= */
+
+const music = document.getElementById('backgroundMusic');
+const musicButton = document.getElementById('musicButton');
+
+music.volume = 0.4;
+
+function updateMusicButton() {
+
+    const playing = !music.paused;
+
+    musicButton.classList.toggle('playing', playing);
+
+    musicButton.setAttribute(
+        'aria-pressed',
+        String(playing)
+    );
+
+    musicButton.setAttribute(
+        'aria-label',
+        playing ? 'Выключить музыку' : 'Включить музыку'
+    );
+}
+
+async function startMusic() {
+
+    try {
+        await music.play();
+    } catch (error) {
+        // Автозапуск может быть запрещён браузером.
+    }
+
+    updateMusicButton();
+}
+
+musicButton.addEventListener('click', async () => {
+
+    if (music.paused) {
+
+        try {
+            await music.play();
+        } catch (error) {
+            console.log('Не удалось запустить музыку');
+        }
+
+    } else {
+
+        music.pause();
+
+    }
+
+    updateMusicButton();
+});
+
+document.addEventListener('click', function firstInteraction() {
+
+    if (music.paused) {
+        startMusic();
+    }
+
+}, { once: true });
+
+music.addEventListener('play', updateMusicButton);
+music.addEventListener('pause', updateMusicButton);
+
+window.addEventListener('load', startMusic);
+
+
+/* =========================
+   ТАЙМЕР
+========================= */
+
+const weddingDate = new Date(2027, 3, 23, 0, 0, 0).getTime();
+
+const daysElement = document.getElementById('days');
+const hoursElement = document.getElementById('hours');
+const minutesElement = document.getElementById('minutes');
+const secondsElement = document.getElementById('seconds');
+
+const countdownElement = document.getElementById('countdown');
+
+const countdownTitle = document.querySelector('.countdown-title');
+const countdownBottom = document.querySelector('.countdown-bottom');
+
+function updateCountdown() {
+
+    const difference = weddingDate - Date.now();
+
+    if (difference <= 0) {
+
+        countdownElement.style.display = 'none';
+
+        countdownTitle.textContent =
+            'Сегодня наша свадьба!';
+
+        countdownBottom.textContent =
+            'Дмитрий & Яна';
+
+        return;
+    }
+
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+    );
+
+    const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+    );
+
+    const seconds = Math.floor(
+        (difference / 1000) % 60
+    );
+
+    daysElement.textContent = String(days).padStart(3, '0');
+    hoursElement.textContent = String(hours).padStart(2, '0');
+    minutesElement.textContent = String(minutes).padStart(2, '0');
+    secondsElement.textContent = String(seconds).padStart(2, '0');
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+
+/* =========================
+   ПОЯВЛЕНИЕ ПРИ ПРОКРУТКЕ
+========================= */
+
+const revealElements = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add('visible');
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+}, {
+    threshold: 0.12
+});
+
+revealElements.forEach(element => {
+    observer.observe(element);
+});
+
+
+
+/* =========================
+   АНКЕТА ГОСТЯ
+========================= */
+
+const guestForm = document.getElementById('guestForm');
+
+if (guestForm) {
+    guestForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(guestForm);
+
+        const guest = {
+            name: formData.get('guestName'),
+            attendance: formData.get('attendance'),
+            drinks: formData.getAll('drinks'),
+            wishes: formData.get('wishes')
+        };
+
+        // Ответ пока выводится в консоль браузера.
+        // Для получения ответов от гостей подключите Google Sheets или Firebase.
+        console.log('Ответ гостя:', guest);
+
+        guestForm.style.display = 'none';
+        document.getElementById('guestSuccess').style.display = 'block';
+    });
+}
+
+</script>
+
+</body>
+</html>
