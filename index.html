@@ -269,7 +269,6 @@ button, a {
 }
 
 /* =========================
-   ТРЕТИЙ ЭКРАН
    ТАЙМЕР
 ========================= */
 
@@ -334,14 +333,7 @@ button, a {
     margin: 0 12px;
 }
 
-.countdown-bottom {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 23px;
-    margin-top: 45px;
-}
-
 /* =========================
-   ЧЕТВЁРТЫЙ ЭКРАН
    ПРОГРАММА ДНЯ
 ========================= */
 
@@ -365,8 +357,8 @@ button, a {
     line-height: 1.05;
     letter-spacing: -1px;
     text-transform: uppercase;
-    margin-left: 11%;
-    margin-bottom: 65px;
+    text-align: center;
+    margin: 0 0 65px;
 }
 
 .program-item {
@@ -404,7 +396,6 @@ button, a {
 }
 
 /* =========================
-   ПЯТЫЙ ЭКРАН
    ДРЕСС-КОД
 ========================= */
 
@@ -420,8 +411,6 @@ button, a {
     justify-content: center;
     align-items: center;
 }
-
-/* ДЕКОРАТИВНАЯ РАМКА */
 
 .dresscode-section::before {
     content: "";
@@ -440,8 +429,6 @@ button, a {
     text-align: center;
 }
 
-/* ЗАГОЛОВОК */
-
 .dresscode-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(65px, 10vw, 115px);
@@ -451,16 +438,12 @@ button, a {
     margin-bottom: 30px;
 }
 
-/* ТОНКАЯ ЛИНИЯ */
-
 .dresscode-decoration {
     width: 75px;
     height: 1px;
     background: rgba(255,255,255,.7);
     margin: 0 auto 35px;
 }
-
-/* ТЕКСТ */
 
 .dresscode-text {
     max-width: 670px;
@@ -470,8 +453,6 @@ button, a {
     line-height: 1.9;
     color: rgba(255,255,255,.92);
 }
-
-/* ПАЛИТРА */
 
 .dresscode-palette {
     display: flex;
@@ -500,29 +481,11 @@ button, a {
     transform: translateY(-6px);
 }
 
-/* Цвета палитры */
-
-.palette-1 {
-    background: #eee8df;
-}
-
-.palette-2 {
-    background: #d3c7b8;
-}
-
-.palette-3 {
-    background: #aaa49a;
-}
-
-.palette-4 {
-    background: #77766f;
-}
-
-.palette-5 {
-    background: #42413e;
-}
-
-/* ПОДПИСЬ */
+.palette-1 { background: #eee8df; }
+.palette-2 { background: #d3c7b8; }
+.palette-3 { background: #aaa49a; }
+.palette-4 { background: #77766f; }
+.palette-5 { background: #42413e; }
 
 .dresscode-note {
     margin-top: 45px;
@@ -549,13 +512,8 @@ button, a {
     transform: translateY(0);
 }
 
-.subtitle.reveal {
-    transition-delay: .2s;
-}
-
-.names.reveal {
-    transition-delay: .4s;
-}
+.subtitle.reveal { transition-delay: .2s; }
+.names.reveal    { transition-delay: .4s; }
 
 .program-item:nth-child(2) { transition-delay: .1s; }
 .program-item:nth-child(3) { transition-delay: .2s; }
@@ -563,7 +521,6 @@ button, a {
 .program-item:nth-child(5) { transition-delay: .4s; }
 .program-item:nth-child(6) { transition-delay: .5s; }
 
-/* Постепенное появление анкеты */
 .guest-title.reveal  { transition-delay: 0s; }
 .guest-intro.reveal  { transition-delay: .08s; }
 
@@ -574,33 +531,6 @@ button, a {
 #guestForm .guest-submit.reveal { transition-delay: .4s; }
 
 /* =========================
-   МУЗЫКА
-========================= */
-
-.music-button {
-    position: fixed;
-    top: calc(20px + env(safe-area-inset-top));
-    right: 20px;
-    z-index: 20;
-    width: 42px;
-    height: 42px;
-    border: 1px solid rgba(255,255,255,.7);
-    border-radius: 50%;
-    background: rgba(0,0,0,.25);
-    color: #fff;
-    font-size: 19px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    backdrop-filter: blur(5px);
-}
-
-.music-button.playing {
-    animation: musicRotate 5s linear infinite;
-}
-
-/* =========================
    АНИМАЦИИ
 ========================= */
 
@@ -609,33 +539,18 @@ button, a {
 }
 
 @keyframes photoAppear {
-    from {
-        opacity: 0;
-        transform: scale(1.08);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1.06);
-    }
+    from { opacity: 0; transform: scale(1.08); }
+    to   { opacity: 1; transform: scale(1.06); }
 }
 
 @keyframes lineMove {
-    0% { top: -100%; }
+    0%   { top: -100%; }
     100% { top: 100%; }
 }
 
 @keyframes arrowMove {
-    0%, 100% {
-        transform: translateY(0) rotate(45deg);
-    }
-    50% {
-        transform: translateY(6px) rotate(45deg);
-    }
-}
-
-@keyframes musicRotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    0%, 100% { transform: translateY(0) rotate(45deg); }
+    50%      { transform: translateY(6px) rotate(45deg); }
 }
 
 /* =========================
@@ -643,11 +558,6 @@ button, a {
 ========================= */
 
 @media (min-width: 601px) and (max-width: 1024px) {
-
-    .program-title {
-        margin-left: 8%;
-    }
-
     .program-item {
         grid-template-columns: 22% 1fr;
         column-gap: 25px;
@@ -664,40 +574,24 @@ button, a {
 
 @media (max-width: 600px) {
 
-    .hero {
-        min-height: 550px;
-    }
+    .hero { min-height: 550px; }
 
     .hero-content {
         top: 66%;
         padding: 0 10px;
     }
 
-    .subtitle {
-        font-size: 25px;
-    }
+    .subtitle { font-size: 25px; }
 
     .names {
         font-size: clamp(34px, 8.8vw, 52px);
         letter-spacing: -1px;
     }
 
-    .scroll {
-        bottom: calc(6% + env(safe-area-inset-bottom));
-    }
-
-    .scroll-line {
-        height: 48px;
-        margin-bottom: 25px;
-    }
-
-    .scroll-arrow {
-        top: 40px;
-    }
-
-    .scroll-text {
-        font-size: 12px;
-    }
+    .scroll { bottom: calc(6% + env(safe-area-inset-bottom)); }
+    .scroll-line { height: 48px; margin-bottom: 25px; }
+    .scroll-arrow { top: 40px; }
+    .scroll-text { font-size: 12px; }
 
     /* ПРИГЛАШЕНИЕ */
 
@@ -706,18 +600,14 @@ button, a {
         min-height: auto;
     }
 
-    .invitation-text {
-        padding: 0 15px;
-    }
+    .invitation-text { padding: 0 15px; }
 
     .invitation-intro,
     .invitation-caption {
         font-size: clamp(16px, 4.2vw, 21px);
     }
 
-    .invitation-intro {
-        line-height: 1.85;
-    }
+    .invitation-intro { line-height: 1.85; }
 
     .wedding-date {
         font-size: clamp(37px, 9vw, 53px);
@@ -764,9 +654,7 @@ button, a {
         margin-bottom: 35px;
     }
 
-    .countdown-number {
-        font-size: clamp(39px, 11vw, 58px);
-    }
+    .countdown-number { font-size: clamp(39px, 11vw, 58px); }
 
     .countdown-label {
         font-size: 9px;
@@ -779,23 +667,15 @@ button, a {
         margin: 0 5px;
     }
 
-    .countdown-bottom {
-        font-size: 20px;
-        margin-top: 35px;
-    }
-
     /* ПРОГРАММА */
 
-    .program-section {
-        padding: 55px 20px 75px;
-    }
+    .program-section { padding: 55px 20px 75px; }
 
     .program-title {
-        font-size: 48px;
+        font-size: 42px;
         letter-spacing: -0.5px;
         line-height: 1.05;
-        margin-left: 0;
-        margin-bottom: 55px;
+        margin: 0 0 55px;
     }
 
     .program-item {
@@ -826,9 +706,7 @@ button, a {
         padding: 85px 25px;
     }
 
-    .dresscode-section::before {
-        inset: 14px;
-    }
+    .dresscode-section::before { inset: 14px; }
 
     .dresscode-title {
         font-size: clamp(57px, 14vw, 78px);
@@ -836,9 +714,7 @@ button, a {
         margin-bottom: 25px;
     }
 
-    .dresscode-decoration {
-        margin-bottom: 28px;
-    }
+    .dresscode-decoration { margin-bottom: 28px; }
 
     .dresscode-text {
         font-size: 15px;
@@ -856,21 +732,12 @@ button, a {
         height: clamp(43px, 12vw, 59px);
     }
 
-    .palette-item {
-        gap: 0;
-    }
+    .palette-item { gap: 0; }
 
     .dresscode-note {
         margin-top: 32px;
         font-size: 10px;
         letter-spacing: 1.3px;
-    }
-
-    .music-button {
-        width: 38px;
-        height: 38px;
-        top: calc(15px + env(safe-area-inset-top));
-        right: 15px;
     }
 }
 
@@ -878,59 +745,31 @@ button, a {
 
 @media (max-width: 360px) {
 
-    .names {
-        font-size: 32px;
-    }
-
-    .subtitle {
-        font-size: 22px;
-    }
-
-    .wedding-date {
-        font-size: 34px;
-    }
+    .names { font-size: 32px; }
+    .subtitle { font-size: 22px; }
+    .wedding-date { font-size: 34px; }
 
     .location {
         padding: 60px 15px;
         margin-top: 60px;
     }
 
-    .location-title {
-        font-size: 42px;
-    }
+    .location-title { font-size: 42px; }
 
-    .countdown-number {
-        font-size: 34px;
-    }
-
-    .countdown-divider {
-        margin: 0 3px;
-    }
-
-    .countdown-label {
-        font-size: 8px;
-    }
+    .countdown-number { font-size: 34px; }
+    .countdown-divider { margin: 0 3px; }
+    .countdown-label { font-size: 8px; }
 
     .program-section {
         padding-left: 16px;
         padding-right: 16px;
     }
 
-    .program-title {
-        font-size: 42px;
-    }
+    .program-title { font-size: 36px; }
+    .program-time { font-size: 37px; }
+    .program-description { font-size: 14px; }
 
-    .program-time {
-        font-size: 37px;
-    }
-
-    .program-description {
-        font-size: 14px;
-    }
-
-    .dresscode-palette {
-        gap: 10px;
-    }
+    .dresscode-palette { gap: 10px; }
 
     .palette-circle {
         width: 43px;
@@ -941,7 +780,6 @@ button, a {
 /* ОТКЛЮЧЕНИЕ АНИМАЦИЙ ПО ЗАПРОСУ */
 
 @media (prefers-reduced-motion: reduce) {
-
     *,
     *::before,
     *::after {
@@ -979,7 +817,7 @@ button, a {
     width: 100%;
     background: #fff;
     color: #292929;
-    padding: 100px 20px 120px;
+    padding: 100px 20px 60px;
 }
 
 .guest-container {
@@ -1149,25 +987,19 @@ button, a {
     }
 
     .guest-section {
-        padding: 75px 22px 90px;
+        padding: 75px 22px 45px;
     }
 
-    .guest-title {
-        font-size: 58px;
-    }
+    .guest-title { font-size: 58px; }
 
     .guest-intro {
         font-size: 13px;
         margin-bottom: 50px;
     }
 
-    .guest-question-title {
-        font-size: 26px;
-    }
+    .guest-question-title { font-size: 26px; }
 
-    .guest-form {
-        gap: 36px;
-    }
+    .guest-form { gap: 36px; }
 }
 
 </style>
@@ -1178,7 +1010,7 @@ button, a {
     width: 100%;
     background: #fff;
     color: #292929;
-    padding: 95px 22px 110px;
+    padding: 60px 22px 110px;
     text-align: center;
 }
 .contacts-container { width: 100%; max-width: 760px; margin: 0 auto; }
@@ -1201,7 +1033,7 @@ button, a {
 .contact-phone:hover { border-color: #292929; }
 .contacts-bottom { margin-top: 55px; font-family: 'Cormorant Garamond', serif; font-size: 27px; font-style: italic; color: #666; }
 @media (max-width: 600px) {
-    .contacts-section { padding: 75px 14px 85px; }
+    .contacts-section { padding: 45px 14px 85px; }
     .contacts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
     .contact-person { padding: 20px 6px; }
     .contact-name { font-size: 26px; margin-bottom: 10px; }
@@ -1216,21 +1048,10 @@ button, a {
 
 <body>
 
-<!-- МУЗЫКА -->
-
+<!-- ФОНОВАЯ МУЗЫКА (без кнопки) -->
 <audio id="backgroundMusic" loop preload="auto">
     <source src="музыка.mp3" type="audio/mpeg">
 </audio>
-
-<button
-    class="music-button"
-    id="musicButton"
-    type="button"
-    aria-label="Включить музыку"
-    aria-pressed="false"
->
-    ♫
-</button>
 
 
 <!-- ПЕРВЫЙ ЭКРАН -->
@@ -1313,15 +1134,14 @@ button, a {
 </section>
 
 
-<!-- ЧЕТВЁРТЫЙ ЭКРАН: ПРОГРАММА ДНЯ -->
+<!-- ПРОГРАММА ДНЯ -->
 
 <section class="program-section" id="program">
 
     <div class="program-container">
 
         <h2 class="program-title reveal">
-            ПРОГРАММА<br>
-            ДНЯ
+            ПРОГРАММА ДНЯ
         </h2>
 
         <div class="program-item reveal">
@@ -1384,7 +1204,7 @@ button, a {
 </section>
 
 
-<!-- ПЯТЫЙ ЭКРАН: ДРЕСС-КОД -->
+<!-- ДРЕСС-КОД -->
 
 <section class="dresscode-section" id="dresscode">
 
@@ -1402,8 +1222,6 @@ button, a {
             и выберете для своего образа оттенки,
             представленные в нашей палитре.
         </p>
-
-        <!-- ЦВЕТОВАЯ ПАЛИТРА -->
 
         <div class="dresscode-palette">
 
@@ -1438,7 +1256,7 @@ button, a {
 </section>
 
 
-<!-- ТАЙМЕР ПОСЛЕ ДРЕСС-КОДА -->
+<!-- ТАЙМЕР -->
 
 <section class="countdown-section">
 
@@ -1477,10 +1295,6 @@ button, a {
             </div>
 
         </div>
-
-        <p class="countdown-bottom">
-            Мы с нетерпением ждём встречи с вами
-        </p>
 
     </div>
 
@@ -1611,71 +1425,26 @@ button, a {
 <script>
 
 /* =========================
-   МУЗЫКА
+   МУЗЫКА (без кнопки)
 ========================= */
 
 const music = document.getElementById('backgroundMusic');
-const musicButton = document.getElementById('musicButton');
 
 music.volume = 0.4;
 
-function updateMusicButton() {
-
-    const playing = !music.paused;
-
-    musicButton.classList.toggle('playing', playing);
-
-    musicButton.setAttribute(
-        'aria-pressed',
-        String(playing)
-    );
-
-    musicButton.setAttribute(
-        'aria-label',
-        playing ? 'Выключить музыку' : 'Включить музыку'
-    );
-}
-
 async function startMusic() {
-
     try {
         await music.play();
     } catch (error) {
         // Автозапуск может быть запрещён браузером.
     }
-
-    updateMusicButton();
 }
 
-musicButton.addEventListener('click', async () => {
-
-    if (music.paused) {
-
-        try {
-            await music.play();
-        } catch (error) {
-            console.log('Не удалось запустить музыку');
-        }
-
-    } else {
-
-        music.pause();
-
-    }
-
-    updateMusicButton();
-});
-
 document.addEventListener('click', function firstInteraction() {
-
     if (music.paused) {
         startMusic();
     }
-
 }, { once: true });
-
-music.addEventListener('play', updateMusicButton);
-music.addEventListener('pause', updateMusicButton);
 
 window.addEventListener('load', startMusic);
 
@@ -1692,42 +1461,22 @@ const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
 
 const countdownElement = document.getElementById('countdown');
-
 const countdownTitle = document.querySelector('.countdown-title');
-const countdownBottom = document.querySelector('.countdown-bottom');
 
 function updateCountdown() {
 
     const difference = weddingDate - Date.now();
 
     if (difference <= 0) {
-
-        countdownElement.style.display = 'none';
-
-        countdownTitle.textContent =
-            'Сегодня наша свадьба!';
-
-        countdownBottom.textContent =
-            'Дмитрий & Яна';
-
+        if (countdownElement) countdownElement.style.display = 'none';
+        if (countdownTitle) countdownTitle.textContent = 'Сегодня наша свадьба!';
         return;
     }
 
-    const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-    );
-
-    const hours = Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-    );
-
-    const minutes = Math.floor(
-        (difference / (1000 * 60)) % 60
-    );
-
-    const seconds = Math.floor(
-        (difference / 1000) % 60
-    );
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
 
     daysElement.textContent = String(days).padStart(3, '0');
     hoursElement.textContent = String(hours).padStart(2, '0');
@@ -1736,7 +1485,6 @@ function updateCountdown() {
 }
 
 updateCountdown();
-
 setInterval(updateCountdown, 1000);
 
 
@@ -1747,19 +1495,12 @@ setInterval(updateCountdown, 1000);
 const revealElements = document.querySelectorAll('.reveal');
 
 const observer = new IntersectionObserver((entries) => {
-
     entries.forEach(entry => {
-
         if (entry.isIntersecting) {
-
             entry.target.classList.add('visible');
-
             observer.unobserve(entry.target);
-
         }
-
     });
-
 }, {
     threshold: 0.12
 });
