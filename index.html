@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
 
-<title>Дмитрий & Яна | Свадебный день</title>
+<title>Дмитрий & Яна | Wedding Day</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,13 +173,14 @@ button, a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 65px 20px 0;
+    padding: 65px 0 0;
     overflow: hidden;
 }
 
 .invitation-text {
     width: 100%;
     max-width: 700px;
+    padding: 0 20px;
     text-align: center;
     color: #303030;
 }
@@ -210,29 +211,32 @@ button, a {
 ========================= */
 
 .location {
-    width: min(775px, 90%);
-    min-height: 620px;
-    margin-top: 125px;
+    width: 100%;
+    min-height: 0;
+    margin: 90px 0 0;
+    padding: clamp(55px, 8vw, 105px) 30px;
+    border-radius: 0;
     background: #292929;
     color: #fff;
-    border-radius: 50% 50% 0 0 / 62% 62% 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 245px 35px 70px;
 }
 
 .location-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(48px, 7vw, 78px);
     font-weight: 400;
-    line-height: 1.1;
-    margin-bottom: 40px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 28px;
 }
 
 .location-name,
 .location-address {
+    max-width: 700px;
     font-size: clamp(17px, 2.2vw, 29px);
     font-weight: 300;
     line-height: 1.7;
@@ -246,11 +250,12 @@ button, a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 350px;
-    min-height: 96px;
+    min-width: 0;
+    width: min(350px, 100%);
+    min-height: 68px;
     padding: 20px 35px;
     margin-top: 30px;
-    border-radius: 60px;
+    border-radius: 0;
     background: #fff;
     color: #292929;
     font-size: 19px;
@@ -639,12 +644,6 @@ button, a {
 
 @media (min-width: 601px) and (max-width: 1024px) {
 
-    .location {
-        margin-top: 110px;
-        min-height: 590px;
-        padding-top: 220px;
-    }
-
     .program-title {
         margin-left: 8%;
     }
@@ -703,8 +702,12 @@ button, a {
     /* ПРИГЛАШЕНИЕ */
 
     .invitation {
-        padding: 55px 15px 0;
+        padding: 55px 0 0;
         min-height: auto;
+    }
+
+    .invitation-text {
+        padding: 0 15px;
     }
 
     .invitation-intro,
@@ -725,28 +728,26 @@ button, a {
 
     .location {
         width: 100%;
-        min-height: 560px;
-        margin-top: 100px;
-        padding: 185px 15px 60px;
-        border-radius: 50% 50% 0 0 / 38% 38% 0 0;
+        margin: 100px 0 0;
+        padding: 65px 20px;
+        min-height: 0;
+        border-radius: 0;
     }
 
     .location-title {
-        font-size: clamp(43px, 11vw, 59px);
-        margin-bottom: 30px;
+        font-size: 48px;
+        margin-bottom: 25px;
     }
 
     .location-name,
     .location-address {
-        font-size: clamp(16px, 4vw, 21px);
+        font-size: 16px;
         line-height: 1.65;
     }
 
     .route-button {
-        min-width: 0;
-        width: min(100%, 320px);
-        min-height: 70px;
-        font-size: 14px;
+        min-height: 60px;
+        font-size: 12px;
         padding: 15px 20px;
         margin-top: 25px;
     }
@@ -890,8 +891,8 @@ button, a {
     }
 
     .location {
-        padding-top: 160px;
-        min-height: 510px;
+        padding: 60px 15px;
+        margin-top: 60px;
     }
 
     .location-title {
@@ -1172,23 +1173,7 @@ button, a {
 </style>
 
 <style>
-/* ДОПОЛНИТЕЛЬНОЕ ОФОРМЛЕНИЕ LOCATION И CONTACTS */
-.location {
-    width: min(900px, 80%);
-    min-height: 0;
-    margin: 90px auto 0;
-    padding: clamp(55px, 8vw, 105px) 30px;
-    border-radius: 0;
-    background: #292929;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-.location-title { margin-bottom: 28px; }
-.location-name, .location-address { max-width: 700px; }
-.route-button { min-width: 0; width: min(350px, 100%); min-height: 68px; border-radius: 0; }
+/* ДОПОЛНИТЕЛЬНОЕ ОФОРМЛЕНИЕ CONTACTS */
 .contacts-section {
     width: 100%;
     background: #fff;
@@ -1216,10 +1201,6 @@ button, a {
 .contact-phone:hover { border-color: #292929; }
 .contacts-bottom { margin-top: 55px; font-family: 'Cormorant Garamond', serif; font-size: 27px; font-style: italic; color: #666; }
 @media (max-width: 600px) {
-    .location { width: calc(100% - 44px); margin-top: 65px; padding: 65px 20px; min-height: 0; border-radius: 0; }
-    .location-title { font-size: 48px; margin-bottom: 25px; }
-    .location-name, .location-address { font-size: 16px; }
-    .route-button { min-height: 60px; font-size: 12px; }
     .contacts-section { padding: 75px 14px 85px; }
     .contacts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
     .contact-person { padding: 20px 6px; }
@@ -1258,7 +1239,7 @@ button, a {
 
     <div class="hero-content">
 
-        <div class="subtitle reveal">СВАДЕБНЫЙ ДЕНЬ</div>
+        <div class="subtitle reveal">WEDDING DAY</div>
 
         <h1 class="names reveal">
             ДМИТРИЙ &amp; ЯНА
