@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -355,10 +356,10 @@ button, a {
 
 .program-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(65px, 10vw, 112px);
+    font-size: clamp(48px, 7vw, 78px);
     font-weight: 500;
-    line-height: .88;
-    letter-spacing: -3px;
+    line-height: 1.05;
+    letter-spacing: -1px;
     text-transform: uppercase;
     margin-left: 11%;
     margin-bottom: 65px;
@@ -556,6 +557,17 @@ button, a {
 .program-item:nth-child(3) { transition-delay: .2s; }
 .program-item:nth-child(4) { transition-delay: .3s; }
 .program-item:nth-child(5) { transition-delay: .4s; }
+.program-item:nth-child(6) { transition-delay: .5s; }
+
+/* Постепенное появление анкеты */
+.guest-title.reveal  { transition-delay: 0s; }
+.guest-intro.reveal  { transition-delay: .08s; }
+
+#guestForm .guest-question:nth-of-type(1).reveal { transition-delay: .16s; }
+#guestForm .guest-question:nth-of-type(2).reveal { transition-delay: .24s; }
+#guestForm .guest-question:nth-of-type(3).reveal { transition-delay: .32s; }
+
+#guestForm .guest-submit.reveal { transition-delay: .4s; }
 
 /* =========================
    МУЗЫКА
@@ -779,9 +791,9 @@ button, a {
     }
 
     .program-title {
-        font-size: clamp(55px, 13vw, 78px);
-        letter-spacing: -1.5px;
-        line-height: .9;
+        font-size: 48px;
+        letter-spacing: -0.5px;
+        line-height: 1.05;
         margin-left: 0;
         margin-bottom: 55px;
     }
@@ -905,7 +917,7 @@ button, a {
     }
 
     .program-title {
-        font-size: 53px;
+        font-size: 42px;
     }
 
     .program-time {
@@ -1163,7 +1175,7 @@ button, a {
 <style>
 /* ДОПОЛНИТЕЛЬНОЕ ОФОРМЛЕНИЕ LOCATION И CONTACTS */
 .location {
-    width: min(1100px, calc(100% - 40px));
+    width: min(900px, 80%);
     min-height: 0;
     margin: 90px auto 0;
     padding: clamp(55px, 8vw, 105px) 30px;
@@ -1205,7 +1217,7 @@ button, a {
 .contact-phone:hover { border-color: #292929; }
 .contacts-bottom { margin-top: 55px; font-family: 'Cormorant Garamond', serif; font-size: 27px; font-style: italic; color: #666; }
 @media (max-width: 600px) {
-    .location { width: calc(100% - 30px); margin-top: 65px; padding: 65px 20px; min-height: 0; border-radius: 0; }
+    .location { width: calc(100% - 44px); margin-top: 65px; padding: 65px 20px; min-height: 0; border-radius: 0; }
     .location-title { font-size: 48px; margin-bottom: 25px; }
     .location-name, .location-address { font-size: 16px; }
     .route-button { min-height: 60px; font-size: 12px; }
@@ -1382,79 +1394,58 @@ button, a {
         </h2>
 
         <div class="program-item reveal">
-
             <div class="program-line"></div>
-
             <div class="program-info">
-
-                <h3 class="program-time">
-                    15:30 ЗАГС
-                </h3>
-
+                <h3 class="program-time">14:00 Сбор гостей</h3>
                 <p class="program-description">
-                    Официальная регистрация брака<br>
-                    во Дворце бракосочетания № 1
+                    Приветственные напитки,<br>
+                    лёгкие закуски и первые фотографии
                 </p>
-
             </div>
-
         </div>
 
         <div class="program-item reveal">
-
             <div class="program-line"></div>
-
             <div class="program-info">
-
-                <h3 class="program-time">
-                    16:30 Сбор гостей
-                </h3>
-
+                <h3 class="program-time">15:00 Церемония</h3>
                 <p class="program-description">
-                    Холодное просекко,<br>
-                    лёгкая обстановка и знакомства
+                    Выездная регистрация брака<br>
+                    под открытым небом
                 </p>
-
             </div>
-
         </div>
 
         <div class="program-item reveal">
-
             <div class="program-line"></div>
-
             <div class="program-info">
-
-                <h3 class="program-time">
-                    17:00 Свадебный ужин
-                </h3>
-
+                <h3 class="program-time">16:00 Поздравления</h3>
                 <p class="program-description">
-                    Самое время для вкусной еды,<br>
-                    веселья и танцев
+                    Шампанское, объятия<br>
+                    и фотосессия с гостями
                 </p>
-
             </div>
-
         </div>
 
         <div class="program-item reveal">
-
             <div class="program-line"></div>
-
             <div class="program-info">
-
-                <h3 class="program-time">
-                    23:00 Финал
-                </h3>
-
+                <h3 class="program-time">18:00 Свадебный ужин</h3>
                 <p class="program-description">
-                    Надеемся, что наш праздник<br>
-                    запомнится вам
+                    Праздничный банкет,<br>
+                    тёплые слова и танцы
                 </p>
-
             </div>
+        </div>
 
+        <div class="program-item reveal">
+            <div class="program-line"></div>
+            <div class="program-info">
+                <h3 class="program-time">23:00 Финал вечера</h3>
+                <p class="program-description">
+                    Завершающий танец<br>
+                    и праздничный салют
+                </p>
+            </div>
         </div>
 
     </div>
@@ -1521,18 +1512,18 @@ button, a {
 
 <!-- АНКЕТА ГОСТЯ -->
 <section class="guest-section" id="guest">
-    <div class="guest-container reveal">
+    <div class="guest-container">
 
-        <h2 class="guest-title">Анкета гостя</h2>
+        <h2 class="guest-title reveal">Анкета гостя</h2>
 
-        <p class="guest-intro">
+        <p class="guest-intro reveal">
             Дорогие гости, пожалуйста, ответьте на несколько вопросов,
             чтобы мы могли подготовить для вас незабываемый праздник.
         </p>
 
         <form class="guest-form" id="guestForm">
 
-            <fieldset class="guest-question">
+            <fieldset class="guest-question reveal">
                 <legend class="guest-question-title">Ваше имя и фамилия</legend>
                 <input
                     class="guest-input"
@@ -1544,7 +1535,7 @@ button, a {
                 >
             </fieldset>
 
-            <fieldset class="guest-question">
+            <fieldset class="guest-question reveal">
                 <legend class="guest-question-title">
                     Сможете ли вы присутствовать?
                 </legend>
@@ -1562,7 +1553,7 @@ button, a {
                 </div>
             </fieldset>
 
-            <fieldset class="guest-question">
+            <fieldset class="guest-question reveal">
                 <legend class="guest-question-title">
                     Какие напитки вы предпочитаете?
                 </legend>
@@ -1590,7 +1581,7 @@ button, a {
                 </div>
             </fieldset>
 
-            <fieldset class="guest-question">
+            <fieldset class="guest-question reveal">
                 <legend class="guest-question-title">
                     Есть ли у вас пожелания?
                 </legend>
@@ -1602,7 +1593,7 @@ button, a {
                 >
             </fieldset>
 
-            <button class="guest-submit" type="submit">
+            <button class="guest-submit reveal" type="submit">
                 ОТПРАВИТЬ ОТВЕТ
             </button>
         </form>
@@ -1830,3 +1821,4 @@ if (guestForm) {
 
 </body>
 </html>
+```
